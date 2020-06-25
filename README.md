@@ -7,20 +7,28 @@ To run the API, you will need a MongoDB instalation. Te easiest way is using a d
 
 First of all, clone the repository.
 
-`git clone https://github.com/rodrigowoulddo/First-Ever-API`
-`cd First-Ever-API`
+```sh
+git clone https://github.com/rodrigowoulddo/First-Ever-API
+cd First-Ever-API
+```
 
 Configure the `.env` file, and change the environment values as you wish.
 
-`mv default.env .env`
+```sh
+mv default.env .env
+```
 
 Then install dependencies.
 
-`npm install`
+```sh
+npm install
+```
 
 Make sure mongoDB is runing on the right port, and run the API. I suggest the `dev` option for coding and debugging.
 
-`npm run dev`
+```sh
+npm run dev
+```
 
 ----
 ## Licence
