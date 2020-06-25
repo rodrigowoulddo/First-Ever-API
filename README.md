@@ -10,6 +10,10 @@ First of all, clone the repository.
 `git clone https://github.com/rodrigowoulddo/First-Ever-API`
 `cd First-Ever-API`
 
+Configure the `.env` file, and change the environment values as you wish.
+
+`mv default.env .env`
+
 Then install dependencies.
 
 `npm install`
