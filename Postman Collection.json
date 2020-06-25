@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "34639f2e-c819-4ca7-9ddf-501187e96c4b",
+		"name": "First Ever API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/5ef2cb745bb0e1e1d449e111",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"5ef2cb745bb0e1e1d449e111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My First Product\",\n    \"description\": \"My product description.\",\n    \"url\": \"https://google.com.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My Edited Product\",\n    \"description\": \"My product description.\",\n    \"url\": \"https://google.com.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products/5ef2cb745bb0e1e1d449e4de",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"5ef2cb745bb0e1e1d449e4de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/5ef3a666186519fed77a60ba",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"5ef3a666186519fed77a60ba"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ee63d60d-aa0c-4796-acf5-227535139082",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e65a7cdb-667f-420b-a6c3-7d57b169809e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Buyers",
+			"item": [
+				{
+					"name": "Create Buyer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Matito\",\n    \"email\": \"didico@mail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products/5ef2cb745bb0e1e1d449e4de/buyers",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"5ef2cb745bb0e1e1d449e4de",
+								"buyers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Buyers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/5ef2cb745bb0e1e1d449e4de/buyers",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"5ef2cb745bb0e1e1d449e4de",
+								"buyers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Buyer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/5ef2cb745bb0e1e1d449e4de/buyers/5ef3ce3eb3bc780a58b06635",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"5ef2cb745bb0e1e1d449e4de",
+								"buyers",
+								"5ef3ce3eb3bc780a58b06635"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My First Product\",\n    \"description\": \"My product description.\",\n    \"url\": \"https://google.com.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"karen@mail.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "818db631-cb46-48dc-84ab-7e0d13f76c38",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2655e7d8-f572-4ae6-b92f-70f570ed56b4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9c5d9a51-7c05-4ceb-83cf-73f02b3e591c",
+			"key": "URL",
+			"value": "http://localhost:3001/api"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
