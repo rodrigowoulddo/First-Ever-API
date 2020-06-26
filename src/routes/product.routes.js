@@ -1,8 +1,7 @@
-const express = require('express');
-const routes = express.Router();
-const verify = require('../helpers/token.helper')
-const ProductController = require('../controllers/product.controller.js')
-const { validateParam, schemas } = require('../helpers/route.helper')
+const routes = require('express').Router();
+const verify = require('../helpers/token.helper');
+const ProductController = require('../controllers/product.controller.js');
+const { validateParam, schemas } = require('../helpers/route.helper');
 
 /**
  *  @swagger

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const log = require('../helpers/log.helper')
+const log = require('../helpers/log.helper');
 
 const Product = mongoose.model('Product');
 const Buyer = mongoose.model('Buyer');

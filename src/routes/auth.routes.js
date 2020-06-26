@@ -1,53 +1,51 @@
-const router = require('express').Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const routes = require('express').Router();
+const AuthController = require('../controllers/auth.controller');
+const { register } = require('../controllers/auth.controller');
 
-const User = require('../models/user');
+/**
+ * @swagger
+ *
+ * '/user/register':
+ *  post:
+ *    tags: [User]
+ *    description: Creates new user
+ *    consumes: application/json
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: user
+ *        schema:
+ *          type: object
+ *          $ref: '#definitions/User'
+ *    responses:
+ *      '200':
+ *        description: A sucessful response
+ *        schema: 
+ *          $ref: '#definitions/UserResponse'
+ */
+routes.post('/register', AuthController.register);
 
-router.post('/register', async (req, res) => { 
+/**
+ * @swagger
+ *
+ * '/user/login':
+ *  post:
+ *    tags: [User]
+ *    description: Authenticates user
+ *    consumes: application/json
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: user
+ *        schema:
+ *          type: object
+ *          $ref: '#definitions/Login'
+ *    responses:
+ *      '200':
+ *        description: A sucessful response
+ *        schema: 
+ *          $ref: '#definitions/LoginResponse'
+ */
+routes.post('/login', AuthController.login);
 
-    // Checks if email already exists
-    const emailExists = await User.findOne({ email: req.body.email });
-    if (emailExists) { return res.status(400).send({ message: "Email already exists" }) }
-
-    // Hashes password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-    // Creates the new user
-    const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: hashedPassword
-    });
-
-
-    // Persists the new user
-    try {
-
-        const createdUser = await user.save();
-        res.send({ userId: createdUser._id, name: createdUser.name, email: createdUser.email });
-
-    } catch (err) { res.status(400).send(err) }
-
-})
-
-router.post('/login', async (req, res) => { 
-    
-    // Checks if email exists
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) { return res.status(400).send({ message: "Email doesn not exists" }) }
-
-    // Checks password
-    const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
-    if (!isPasswordValid) { return res.status(400).send({ message: "Invalid Password" }) }
-
-    // Create token
-    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET)
-    
-    // Sends token back
-    res.header('auth-token', token).send({token: token});
-
- })
-
-module.exports = router
+module.exports = routes;

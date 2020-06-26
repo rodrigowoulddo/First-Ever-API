@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const mongoosePaginate = require('mongoose-paginate')
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 const BuyerSchema = new mongoose.Schema({
 
@@ -15,6 +15,10 @@ const BuyerSchema = new mongoose.Schema({
 });
 
 mongoose.model('Buyer', BuyerSchema);
+
+/*
+ *  Swagger Models
+ */ 
 
 /**
  * @swagger
