@@ -66,11 +66,14 @@ module.exports = {
 
             const { id } = req.value.params;
 
-            log('Updating product with id ' + req.params.id);
-
-            const product = await Product.findById(id);
+            log('Updating product with id ' + id);
 
             const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+            if (!product) {
+                return res.send(500, { message: "No record found" });
+            }
+
             return res.json(product);
 
         }
