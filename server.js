@@ -34,16 +34,6 @@ log('🟢 Connected to database');
 requireDir('./src/models');
 
 /// Routes
-
-/**
- *  @swagger
- * /products
- *  get:
- *      description: Requests all products
- *      responses:
- *          '200':
- *              description: A sucessful response
- */
 app.use('/api', require('./src/routes/product.routes'));
 app.use('/api/user', require('./src/routes/auth.routes'));
 
