@@ -37,5 +37,8 @@ requireDir('./src/models');
 app.use('/api', require('./src/routes/product.routes'));
 app.use('/api/user', require('./src/routes/auth.routes'));
 
+/// Redirects Root
+app.get("/", (req, res) => { return res.status(301).redirect("/api-docs") })
+
 app.listen(process.env.PORT);
 log('Listening now on port ' + process.env.PORT);
