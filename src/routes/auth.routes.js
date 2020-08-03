@@ -5,7 +5,7 @@ const { register } = require('../controllers/auth.controller');
 /**
  * @swagger
  *
- * '/user/register':
+ * '/api/user/register':
  *  post:
  *    tags: [User]
  *    description: Creates new user
@@ -28,7 +28,7 @@ routes.post('/register', AuthController.register);
 /**
  * @swagger
  *
- * '/user/login':
+ * '/api/user/login':
  *  post:
  *    tags: [User]
  *    description: Authenticates user
